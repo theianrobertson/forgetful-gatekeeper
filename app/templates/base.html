@@ -1,0 +1,38 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - Forgetful Gatekeeper</title>
+    {% else %}
+    <title>Forgetful Gatekeeper</title>
+    {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">The Forgetful Gatekeeper</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li{% if active=='index' %} class="active"{% endif %}><a href="#">Home</a></li>
+            <li{% if active=='about' %} class="active"{% endif %}><a href="#">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="https://github.com/theianrobertson/forgetful-gatekeeper">
+                <img src="{{ url_for('static', filename='img/octocat.svg') }}" alt="github" width="20px">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+    {% block content %}{% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='js/clipboard.min.js') }}"></script>
+    {% block js %}{% endblock %}
+  </body>
+</html>

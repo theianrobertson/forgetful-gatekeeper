@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<textarea id="generated-password">A8v@jsf9SGa8sjg2</textarea>
+
+<button class="btn" data-clipboard-action="copy" data-clipboard-target="#generated-password">
+  Get it!
+</button>
+{% endblock %}
+
+{% block js %}
+<script>
+  new Clipboard('.btn');
+</script>
+{% endblock %}
